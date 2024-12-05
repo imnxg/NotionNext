@@ -64,18 +64,14 @@ const Catalog = ({ toc }) => {
   }
 
   return (
-    <div className='px-3 py-1'>
-      <div className='w-full'>
-        <i className='mr-1 fas fa-stream' />
-        {locale.COMMON.TABLE_OF_CONTENTS}
-      </div>
+    <div className='px-3'>
       <div className='w-full py-3'>
         <Progress />
       </div>
       <div
-        className='overflow-y-auto max-h-36 lg:max-h-96 overscroll-none scroll-hidden'
+        className='overflow-y-auto max-h-96 overscroll-none scroll-hidden'
         ref={tRef}>
-        <nav className='h-full  text-black'>
+        <nav className='h-full text-black'>
           {toc.map(tocItem => {
             const id = uuidToId(tocItem.id)
             tocIds.push(id)
@@ -83,14 +79,23 @@ const Catalog = ({ toc }) => {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`${activeSection === id && 'dark:border-white border-indigo-800 text-indigo-800 font-bold'} hover:font-semibold border-l pl-4 block hover:text-indigo-800 border-lduration-300 transform dark:text-indigo-400 dark:border-indigo-400
-        notion-table-of-contents-item-indent-level-${tocItem.indentLevel} catalog-item `}>
+                className={`${
+                  activeSection === id 
+                    ? 'dark:border-white border-indigo-800 text-indigo-800 font-bold' 
+                    : ''
+                } hover:font-semibold border-l pl-4 block hover:text-indigo-800 border-l duration-300 transform dark:text-indigo-400 dark:border-indigo-400
+                notion-table-of-contents-item-indent-level-${tocItem.indentLevel} catalog-item`}
+              >
                 <span
                   style={{
                     display: 'inline-block',
                     marginLeft: tocItem.indentLevel * 16
                   }}
-                  className={`truncate ${activeSection === id ? ' font-bold text-indigo-800 dark:text-white underline' : ''}`}>
+                  className={`truncate ${
+                    activeSection === id 
+                      ? 'font-bold text-indigo-800 dark:text-white underline' 
+                      : ''
+                  }`}>
                   {tocItem.text}
                 </span>
               </a>
