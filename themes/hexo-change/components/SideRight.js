@@ -44,8 +44,7 @@ export default function SideRight(props) {
     showCategory,
     showTag,
     rightAreaSlot,
-    notice,
-    className
+    notice
   } = props
 
   const { locale } = useGlobal()
@@ -90,33 +89,41 @@ export default function SideRight(props) {
       id='sideRight'
       className={`lg:w-80 lg:pt-8 ${post ? 'lg:pt-0' : 'lg:pt-4'}`}>
       <div className='sticky top-8 space-y-4'>
-        {post && post.toc && post.toc.length > 1 ? (
-          <div className="bg-white dark:bg-hexo-black-gray p-4 rounded-xl border dark:border-black">
-            <div className="flex justify-center items-center pb-6 space-x-4">
-              <div
-                className={`cursor-pointer px-4 py-2 text-sm rounded-lg text-gray-600 bg-gray-200 transition duration-200 ease-out ${
-                  activeTab === 'catalog' ? 'bg-indigo-600 text-white shadow-lg' : ''
-                }`}
-                onClick={() => handleTabClick('catalog')}
-              >
-                <i className="fas fa-list-ol"></i>
-                {activeTab === 'catalog' && <span className="pl-1">文章目录</span>}
+        {(!post || (post && post.toc && post.toc.length > 1)) && (
+          <>
+            {post?.toc?.length > 1 ? (
+              <div className="bg-white dark:bg-hexo-black-gray p-4 rounded-xl border dark:border-black">
+                <div className="flex justify-center items-center pb-6 space-x-4">
+                  <div
+                    className={`cursor-pointer px-4 py-2 text-sm rounded-lg text-gray-600 transition duration-200 ease-out ${
+                      activeTab === 'catalog' 
+                        ? 'bg-blue-600 text-white shadow-lg' 
+                        : 'bg-gray-200 hover:bg-blue-50'
+                    }`}
+                    onClick={() => handleTabClick('catalog')}
+                  >
+                    <i className="fas fa-list-ol"></i>
+                    {activeTab === 'catalog' && <span className="pl-1">文章目录</span>}
+                  </div>
+                  <div
+                    className={`cursor-pointer px-4 py-2 text-sm rounded-lg text-gray-600 transition duration-200 ease-out ${
+                      activeTab === 'infoCard' 
+                        ? 'bg-blue-600 text-white shadow-lg' 
+                        : 'bg-gray-200 hover:bg-blue-50'
+                    }`}
+                    onClick={() => handleTabClick('infoCard')}
+                  >
+                    <i className="fas fa-chart-pie"></i>
+                    {activeTab === 'infoCard' && <span className="pl-1">站点概览</span>}
+                  </div>
+                </div>
+                {activeTab === 'catalog' && <Catalog toc={post.toc} />}
+                {activeTab === 'infoCard' && renderInfoContent()}
               </div>
-              <div
-                className={`cursor-pointer px-4 py-2 text-sm rounded-lg text-gray-600 bg-gray-200 transition duration-200 ease-out ${
-                  activeTab === 'infoCard' ? 'bg-indigo-600 text-white shadow-lg' : ''
-                }`}
-                onClick={() => handleTabClick('infoCard')}
-              >
-                <i className="fas fa-chart-pie"></i>
-                {activeTab === 'infoCard' && <span className="pl-1">站点概览</span>}
-              </div>
-            </div>
-            {activeTab === 'catalog' && <Catalog toc={post.toc} />}
-            {activeTab === 'infoCard' && renderInfoContent()}
-          </div>
-        ) : (
-          renderInfoContent()
+            ) : (
+              renderInfoContent()
+            )}
+          </>
         )}
 
         {siteConfig('HEXO_WIDGET_ANALYTICS', null, CONFIG) && (
