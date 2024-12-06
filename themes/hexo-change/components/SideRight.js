@@ -60,15 +60,15 @@ export default function SideRight(props) {
 
   const renderInfoContent = () => {
     return (
-      <div className="space-y-4">
-        <div className="space-y-4 lg:w-60 pt-4 lg:pt-4">
+      <div className="space-y-4 flex flex-col items-center w-full">
+        <div className="space-y-4 lg:w-60 pt-4 lg:pt-4 w-4/5">
           <InfoCard {...props} />
         </div>
         
         {siteConfig('HEXO_WIDGET_LATEST_POSTS', null, CONFIG) &&
           latestPosts &&
           latestPosts.length > 0 && (
-            <div className="lg:w-60">
+            <div className="lg:w-60 w-4/5">
               <div className="bg-white dark:bg-hexo-black-gray p-4 rounded-xl border dark:border-black">
                 <LatestPostsGroup {...props} />
               </div>
@@ -76,7 +76,7 @@ export default function SideRight(props) {
         )}
         
         {notice && (
-          <div className="lg:w-60">
+          <div className="lg:w-60 w-4/5">
             <Announcement post={notice} />
           </div>
         )}

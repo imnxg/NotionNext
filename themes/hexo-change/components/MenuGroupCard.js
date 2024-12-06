@@ -40,32 +40,33 @@ const MenuGroupCard = props => {
   }
 
   return (
-    <nav id='nav' 
-    className='leading-8 flex justify-center mt-4 dark:text-gray-200 w-full divide-x divide-black dark:divide-white'>
-    {/* <nav
-      id='nav'
-      className='leading-8 flex justify-center  dark:text-gray-200 w-full'> */}
-      {links.map(link => {
-        if (link.show) {
-          return (
-            <Link
-              key={`${link.href}`}
-              title={link.href}
-              href={link.href}
-              target={link?.target}
-              className={'px-4 duration-300 text-base justify-center items-center cursor-pointer'}>
-
-                <div className='w-full items-center justify-center hover:scale-105 duration-200 transform hover:text-hexo-primary'>
-                  <div className='text-center text-md'>{link.name}</div>
-                  <div className='text-center text-2xl font-semibold'>{link.slot}</div>
-                </div>
-            </Link>
-          )
-        } else {
-          return null
-        }
-      })}
-    </nav>
+    // <nav id='nav' 
+    // className='leading-8 flex justify-center mt-4 dark:text-gray-200 w-full divide-x divide-black dark:divide-white'>
+<nav
+  id='nav'
+  className='leading-8 flex justify-center items-center dark:text-gray-200 w-full'>
+  <div className='flex flex-nowrap'>  {/* 添加这个不换行的容器 */}
+    {links.map(link => {
+      if (link.show) {
+        return (
+          <Link
+            key={`${link.href}`}
+            title={link.href}
+            href={link.href}
+            target={link?.target}
+            className={'px-2 duration-300 text-base justify-center items-center cursor-pointer whitespace-nowrap'}>  {/* 添加 whitespace-nowrap */}
+              <div className='w-full items-center justify-center hover:scale-105 duration-200 transform hover:text-hexo-primary'>
+                <div className='text-center text-md'>{link.name}</div>
+                <div className='text-center font-semibold'>{link.slot}</div>
+              </div>
+          </Link>
+        )
+      } else {
+        return null
+      }
+    })}
+  </div>
+</nav>
   )
 }
 export default MenuGroupCard
