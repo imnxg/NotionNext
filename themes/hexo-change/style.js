@@ -66,7 +66,7 @@ const Style = () => {
 
     * {
         scrollbar-width:thin;
-        scrollbar-color: #49b1f5 transparent
+        scrollbar-color: #cccccc transparent
     }
     
 /* Cusstum start*/
@@ -154,17 +154,17 @@ const Style = () => {
 //         overflow: hidden;
 //     }
 
-//     // AI打字机，闪烁光标
-//     .blinking-cursor {
-//         background-color: var(--ai-title);
-//         width: 10px;
-//         height: 16px;
-//         display: inline-block;
-//         vertical-align: middle;
-//         animation: blinking-cursor 0.5s infinite;
-//         -webkit-animation: blinking-cursor 0.5s infinite;
-//         margin-left: 4px;
-//       }
+    // AI打字机，闪烁光标
+    .blinking-cursor {
+        background-color: var(--ai-title);
+        width: 10px;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        animation: blinking-cursor 0.5s infinite;
+        -webkit-animation: blinking-cursor 0.5s infinite;
+        margin-left: 4px;
+      }
       
 //     @keyframes blinking-cursor {
 //         0% {
@@ -198,14 +198,14 @@ const Style = () => {
 //     }
 
 //     //文章封面
-//     .left-clip-path {
-//         -webkit-clip-path: polygon(0 0,92% 0,100% 100%,0 100%);
-//         clip-path: polygon(0 0,92% 0,100% 100%,0 100%);
-//     }
-//     .right-clip-path {
-//         -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
-//         clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
-//     }
+    .left-clip-path {
+        -webkit-clip-path: polygon(0 0,92% 0,100% 100%,0 100%);
+        clip-path: polygon(0 0,92% 0,100% 100%,0 100%);
+    }
+    .right-clip-path {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 8% 100%);
+    }
 
 //     //标题阴影
 //     .text-shadow {
