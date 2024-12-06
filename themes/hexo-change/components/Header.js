@@ -150,23 +150,24 @@ const Header = props => {
       <div
         id='sticky-nav'
         style={{ backdropFilter: 'blur(3px)' }}
-        className={'top-0 duration-300 transition-all shadow-none fixed bg-none text-shadow dark:bg-hexo-black-grey text-hexo-grey w-full z-20 transform border-transparent dark:border-transparent'}
-        // className={
-        //   'top-0 duration-300 transition-all  shadow-none fixed bg-none dark:bg-hexo-black-gray dark:text-gray-200 text-black w-full z-20 transform border-transparent dark:border-transparent'
-        // }
+        //className={'top-0 duration-300 transition-all shadow-none fixed bg-none text-shadow dark:bg-hexo-black-grey text-hexo-grey w-full z-20 transform border-transparent dark:border-transparent'}
+        className={
+          'top-0 duration-300 transition-all  shadow-none fixed bg-none dark:bg-hexo-black-gray dark:text-gray-200 text-black w-full z-20 transform border-transparent dark:border-transparent'
+        }
         >
         {/* <div className='flex justify-start items-center space-x-4'> */}
-        <div className='w-full flex justify-between items-center px-4 py-2'>
-          <div className='flex'>
+        <div className='max-w-7xl mx-auto flex justify-between items-center px-4 py-2'>
+          {/* <div className='flex'> */}
+          <div className='flex justify-start items-center space-x-5'>
             <Logo {...props} />
+            <div className='hidden lg:flex ml-16'>
+              {' '}
+              <MenuListTop {...props} />
+            </div>
           </div>
 
           {/* 右侧功能 */}
           <div className='mr-1 flex justify-end items-center '>
-            <div className='hidden lg:flex'>
-              {' '}
-              <MenuListTop {...props} />
-            </div>
             <div
               onClick={toggleMenuOpen}
               className='w-8 justify-center items-center h-8 cursor-pointer flex lg:hidden'>
