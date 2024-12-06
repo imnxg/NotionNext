@@ -92,7 +92,7 @@ export default function SideRight(props) {
         {(!post || (post && post.toc && post.toc.length > 1)) && (
           <>
             {post?.toc?.length > 1 ? (
-              <div className="bg-white dark:bg-hexo-black-gray p-4 rounded-xl border dark:border-black">
+              <div className="bg-white dark:bg-hexo-black-gray p-4 rounded-xl border dark:border-black lg:block hidden">
                 <div className="flex justify-center items-center pb-6 space-x-4">
                   <div
                     className={`cursor-pointer px-4 py-2 text-sm rounded-lg text-gray-600 transition duration-200 ease-out ${
@@ -121,7 +121,9 @@ export default function SideRight(props) {
                 {activeTab === 'infoCard' && renderInfoContent()}
               </div>
             ) : (
-              renderInfoContent()
+              <div className="lg:block hidden">
+                {renderInfoContent()}
+              </div>
             )}
           </>
         )}
