@@ -123,7 +123,7 @@ export const getLayoutByTheme = ({ layoutName, theme }) => {
  */
 const getLayoutNameByPath = path => {
   const layoutName = LAYOUT_MAPPINGS[path] || 'LayoutSlug'
-  //   console.log('path-layout',path,layoutName)
+    console.log('path-layout',path,layoutName)
   return layoutName
 }
 

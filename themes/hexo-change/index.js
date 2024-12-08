@@ -32,6 +32,8 @@ import TagItemMini from './components/TagItemMini'
 import TocDrawer from './components/TocDrawer'
 import TocDrawerButton from './components/TocDrawerButton'
 import AISummary from './components/AISummary'
+import BlogMemos from './components/MemosBlog'
+import CatHeader from './components/CatHeader'
 import CONFIG from './config'
 import { Style } from './style'
 
@@ -54,14 +56,30 @@ const LayoutBase = props => {
   const { post, children, slotTop, className } = props
   const { onLoading, fullWidth } = useGlobal()
   const router = useRouter()
-  const showRandomButton = siteConfig('HEXO_MENU_RANDOM', false, CONFIG)
 
-  const headerSlot = post ? (
-    <PostHero {...props} />
-  ) : router.route === '/' &&
-    siteConfig('HEXO_HOME_BANNER_ENABLE', null, CONFIG) ? (
-    <Hero {...props} />
-  ) : null
+  const showRandomButton = siteConfig('HEXO_MENU_RANDOM', false, CONFIG)
+  // 文章页显示文章头,与下面注释的代码二选一
+  // const headerSlot = post ? (
+  //   <PostHero {...props} />
+  // ) : router.route === '/' &&
+  //   siteConfig('HEXO_HOME_BANNER_ENABLE', null, CONFIG) ? (
+  //   <Hero {...props} />
+  // ) : null
+
+  // 归档/分类/标签/说说页面的头部组件,
+  const headerPathsStr = siteConfig('URL_HEADER_PATHS', null, CONFIG);
+  // 将字符串转换为数组
+  // const headerPaths = JSON.parse(headerPathsStr);
+  //将字符串转换为数组，"['/archive', '/category', '/tag','/memos']"转换为['/archive', '/category', '/tag','/memos']
+  // console.log("headerPaths",headerPaths)
+  // 根据不同路由显示不同的头部组件
+  const headerSlot = post
+  ? <PostHero {...props} /> // 文章页显示文章头
+  : (router.route === '/' && siteConfig('HEXO_HOME_BANNER_ENABLE', null, CONFIG)
+      ? <Hero {...props} /> // 首页且开启banner时显示Hero组件
+      : (headerPathsStr.includes(router.route)
+      ? <CatHeader {...props} /> // 归档/分类/标签页显示分类头
+      : null))
 
   const drawerRight = useRef(null)
   const tocRef = isBrowser ? document.getElementById('article-wrapper') : null
@@ -258,6 +276,36 @@ const LayoutArchive = props => {
 }
 
 /**
+ * Memos 说说
+ * @param {*} props
+ * @returns
+ */
+const LayoutMemos = (props) => {
+  const memoPageInfo = {
+    id: "9e6c78642def47bcbabe35f526307639", // 固定ID，确保唯一性
+    type: "Memos",
+    title: "我的说说",
+  };
+  return  (
+  <div className="w-full lg:hover:shadow rounded-md lg:rounded-md lg:px-2 lg:py-4 article">
+    <div id="article-wrapper" className="overflow-x-auto flex-grow mx-auto md:w-full px-3 font-serif">
+      <article itemScope itemType="https://schema.org/Movie" className="subpixel-antialiased overflow-y-hidden overflow-x-hidden" >
+        {/* Notion文章主体 */}
+        <section className='justify-center mx-auto max-w-2xl lg:max-w-full'>
+            <BlogMemos {...props}/>
+        </section>
+      </article>
+      <div className='pt-4 border-dashed'></div>
+      {/* 评论互动 */}
+      <div className="duration-200 overflow-x-auto px-3">
+        <Comment frontMatter={memoPageInfo} />
+      </div>
+    </div>
+  </div>)
+}
+
+
+/**
  * 文章详情
  * @param {*} props
  * @returns
@@ -433,6 +481,7 @@ export {
   LayoutIndex,
   LayoutPostList,
   LayoutSearch,
+  LayoutMemos,
   LayoutSlug,
   LayoutTagIndex,
   CONFIG as THEME_CONFIG

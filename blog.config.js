@@ -112,6 +112,7 @@ const BLOG = {
     '-1': 'LayoutBase',
     '/': 'LayoutIndex',
     '/archive': 'LayoutArchive',
+    '/memos' : 'LayoutMemos',
     '/page/[page]': 'LayoutPostList',
     '/category/[category]': 'LayoutPostList',
     '/category/[category]/page/[page]': 'LayoutPostList',
@@ -270,16 +271,30 @@ const BLOG = {
   // 星空雨特效 黑夜模式才会生效
   STARRY_SKY: process.env.NEXT_PUBLIC_STARRY_SKY || false, // 开关
 
-  //   ********挂件组件相关********
-  // AI 文章摘要生成 @see https://docs_s.tianli0.top/
+  //**************** 自定义配置官方没有提供，需要自己手动引入 start  ****************
+  //url匹配
+  URL_HEADER_PATHS: process.env.NEXT_PUBLIC_URL_HEADER_PATHS || ['/archive', '/category', '/tag','/memos'], // 随记url匹配
+  // Memos 随记 @see https://github.com/usememos/usememos
+  MEMOS_ENABLE: process.env.NEXT_PUBLIC_MEMOS || false, // 开关
+  MEMOS_HOST: process.env.NEXT_PUBLIC_MEMOS_HOST || 'https://memos.chenge.ink', // 随记地址
+  MEMOS_LIMIT: process.env.NEXT_PUBLIC_MEMOS_LIMIT || '10',// 随记数量
+  MEMOS_DOM_ID: process.env.NEXT_PUBLIC_MEMOS_DOM_ID || '#memos',// 随记dom id
+  MEMOS_CREATOR_ID: process.env.NEXT_PUBLIC_MEMOS_CREATOR_ID || '1',// 随记创建者id
+  MEMOS_USERNAME: process.env.NEXT_PUBLIC_MEMOS_USERNAME || 'keney', // 随记用户名
+  MEMOS_NAME: process.env.NEXT_PUBLIC_MEMOS_NAME || 'keney', // 随记名称
+  
+    // AI 文章摘要生成 @see https://docs_s.tianli0.top/
   TianliGPT_CSS:
     process.env.NEXT_PUBLIC_TIANLI_GPT_CSS ||
     'https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.css',
   TianliGPT_JS:
     process.env.NEXT_PUBLIC_TIANLI_GPT_JS ||
     'https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.15.2/tianli_gpt.js',
-  TianliGPT_KEY: process.env.NEXT_PUBLIC_TIANLI_GPT_KEY || '633d5445b832cb5d8e59',
+  TianliGPT_KEY: process.env.NEXT_PUBLIC_TIANLI_GPT_KEY || '633d5445b832cb5d8e59',// AI key
 
+  //**************** 自定义配置官方没有提供，需要自己手动引入 start  ****************
+
+  //   ********挂件组件相关********
   // Chatbase 是否显示chatbase机器人 https://www.chatbase.co/
   CHATBASE_ID: process.env.NEXT_PUBLIC_CHATBASE_ID || null,
   // WebwhizAI 机器人 @see https://github.com/webwhiz-ai/webwhiz
