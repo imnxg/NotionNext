@@ -145,6 +145,10 @@ const Style = () => {
         --ai-card-bg: #1d1e22;
         --ai-card-border: #3d3d3f;
     }
+        //notion卡片
+    .notion-collection-card-cover {
+        border-radius: 15px 15px 0 0;
+    }
 
 //     // iconfont 图标支持
 //     .icon {

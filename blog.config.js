@@ -275,7 +275,7 @@ const BLOG = {
   //url匹配
   URL_HEADER_PATHS: process.env.NEXT_PUBLIC_URL_HEADER_PATHS || ['/archive', '/category', '/tag','/memos'], // 随记url匹配
   // Memos 随记 @see https://github.com/usememos/usememos
-  MEMOS_ENABLE: process.env.NEXT_PUBLIC_MEMOS || false, // 开关
+  MEMOS_ENABLE: process.env.NEXT_PUBLIC_MEMOS_ENABLE || false, // 开关
   MEMOS_HOST: process.env.NEXT_PUBLIC_MEMOS_HOST || 'https://memos.chenge.ink', // 随记地址
   MEMOS_LIMIT: process.env.NEXT_PUBLIC_MEMOS_LIMIT || '10',// 随记数量
   MEMOS_DOM_ID: process.env.NEXT_PUBLIC_MEMOS_DOM_ID || '#memos',// 随记dom id
