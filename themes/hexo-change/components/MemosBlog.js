@@ -45,6 +45,7 @@ const BlogMemos = () => {
     useEffect(() => {
         if (isResourcesLoaded) {
             try {
+                console.log(siteConfig('MEMOS_ENABLE'))
                 if(!siteConfig('MEMOS_ENABLE')){
                     console.log("memos is not enabled")
                     return
