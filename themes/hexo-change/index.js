@@ -34,6 +34,7 @@ import TocDrawerButton from './components/TocDrawerButton'
 import AISummary from './components/AISummary'
 import BlogMemos from './components/MemosBlog'
 import CatHeader from './components/CatHeader'
+import MemosGallery from './components/MemosGallery'
 import CONFIG from './config'
 import { Style } from './style'
 
@@ -304,6 +305,34 @@ const LayoutMemos = (props) => {
   </div>)
 }
 
+/**
+ * Memos 画册
+ * @param {*} props
+ * @returns
+ */
+const LayoutMemosGallery = props => {
+  const memoPageInfo = {
+    id: "9e6c78642def47bcbabe35f5263076390", // 固定ID，确保唯一性
+    type: "MemosGallery",
+    title: "我的画廊",
+  };
+  return  (
+    <div className="w-full lg:hover:shadow rounded-md lg:rounded-md lg:px-2 lg:py-4 article">
+      <div id="article-wrapper" className="overflow-x-auto flex-grow mx-auto md:w-full px-3 font-serif">
+        <article itemScope itemType="https://schema.org/Movie" className="subpixel-antialiased overflow-y-hidden overflow-x-hidden" >
+          {/* Notion文章主体 */}
+          <section className='justify-center mx-auto max-w-2xl lg:max-w-full'>
+              <MemosGallery {...props}/>
+          </section>
+        </article>
+        <div className='pt-4 border-dashed'></div>
+        {/* 评论互动 */}
+        <div className="duration-200 overflow-x-auto px-3">
+          <Comment frontMatter={memoPageInfo} />
+        </div>
+      </div>
+    </div>)
+}
 
 /**
  * 文章详情
@@ -482,6 +511,7 @@ export {
   LayoutPostList,
   LayoutSearch,
   LayoutMemos,
+  LayoutMemosGallery,
   LayoutSlug,
   LayoutTagIndex,
   CONFIG as THEME_CONFIG

@@ -113,6 +113,7 @@ const BLOG = {
     '/': 'LayoutIndex',
     '/archive': 'LayoutArchive',
     '/memos' : 'LayoutMemos',
+    "/gallery" : "LayoutGallery",
     '/page/[page]': 'LayoutPostList',
     '/category/[category]': 'LayoutPostList',
     '/category/[category]/page/[page]': 'LayoutPostList',
@@ -282,6 +283,11 @@ const BLOG = {
   MEMOS_CREATOR_ID: process.env.NEXT_PUBLIC_MEMOS_CREATOR_ID || '1',// 随记创建者id
   MEMOS_USERNAME: process.env.NEXT_PUBLIC_MEMOS_USERNAME || 'keney', // 随记用户名
   MEMOS_NAME: process.env.NEXT_PUBLIC_MEMOS_NAME || 'keney', // 随记名称
+  MEMOS_GET_HOST_URL: process.env.NEXT_PUBLIC_MEMOS_GET_HOST_URL || 'https://memos.chenge.ink',// 随记地址
+  MEMOS_GET_CREATOR_ID: process.env.NEXT_PUBLIC_MEMOS_GET_CREATOR_ID || '1',// 随记创建者id
+  MEMOS_GET_TAG: process.env.NEXT_PUBLIC_MEMOS_GET_TAG || 'images',// 随记标签
+  MEMOS_GET_PUBLIC: process.env.NEXT_PUBLIC_MEMOS_GET_PUBLIC || 'PUBLIC',// 随记公开状态
+  MEMOS_GALLERY_ENABLE: process.env.NEXT_PUBLIC_MEMOS_GALLERY_ENABLE || false,// 随记画册开关
   
     // AI 文章摘要生成 @see https://docs_s.tianli0.top/
   TianliGPT_CSS:

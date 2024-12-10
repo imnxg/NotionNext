@@ -46,10 +46,14 @@ const BlogMemos = () => {
         if (isResourcesLoaded) {
             try {
                 console.log(siteConfig('MEMOS_ENABLE'))
-                if(!siteConfig('MEMOS_ENABLE')){
+                if(siteConfig('MEMOS_ENABLE')==='false'){
                     console.log("memos is not enabled")
                     return
                 }
+                // if(!siteConfig('MEMOS_ENABLE')){
+                   
+                //     return
+                // }
                 // 设置全局配置
                  // 将配置注入到window对象中供memos.js使用
                 //注意避免 污染全局变量 todo:后续可以优化，使用createContext状态管理

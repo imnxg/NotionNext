@@ -1,0 +1,203 @@
+/* 加载动画样式 */
+.loading-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 瀑布流布局 */
+.gallery-photos {
+    column-count: 3;
+    margin: 0 auto;
+    column-gap: 15px;
+    margin-top: 15px;
+}
+
+.gallery-photo {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 9px;
+}
+
+.gallery-photo a {
+    display: block;
+    position: relative;
+}
+
+.gallery-photo img {
+    display: block;
+    width: 100%;
+    border-radius: 9px;
+    border: 3px solid var(--vp-c-brand-lighter);
+    box-shadow: 0 10px 50px #5f2f1182;
+    filter: sepia(30%) saturate(30%) hue-rotate(5deg);
+    transition: transform 0.5s;
+    background: url('/svg/load.svg') center center no-repeat;
+    background-size: 50px 50px;
+}
+
+.gallery-photo img.loaded {
+    background: none;
+}
+
+.gallery-photo img:hover {
+    transform: rotate(0deg) scale(0.99);
+    filter: none;
+}
+
+/* 标题和时间样式 , opacity: 1; 显示，后续需要使用再开启，hover时opacity: 0; 隐藏*/
+.gallery-photo span.photo-title,
+.gallery-photo span.photo-time {
+    max-width: calc(100% - 20px);
+    line-height: 1.6;
+    position: absolute;
+    left: 10px;
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    color: #fff;
+    animation: fadeIn 1s;
+    font-family: "LXGW WenKai Screen", sans-serif;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gallery-photo:hover span.photo-title,
+.gallery-photo:hover span.photo-time {
+    opacity: 0;
+}
+
+.gallery-photo span.photo-title {
+    bottom: 5px;
+    left: 5px;
+    font-size: 11px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.gallery-photo span.photo-time {
+    top: 5px;
+    left: 5px;
+    font-size: 11px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 1200px) {
+    .gallery-photos {
+        column-count: 3;
+        margin-top: 15px;
+    }
+    .gallery-photo span.photo-title,
+    .gallery-photo span.photo-time {
+        font-size: 11px;
+        padding: 3px 7px;
+        max-width: calc(100% - 14px);
+        left: 14px;
+    }
+    .gallery-photo span.photo-title {
+        bottom: 14px;
+    }
+    .gallery-photo span.photo-time {
+        top: 14px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .gallery-photos {
+        column-count: 2;
+        margin-top: 35px;
+    }
+    .gallery-photo span.photo-title,
+    .gallery-photo span.photo-time {
+        font-size: 11px;
+        padding: 2px 6px;
+        max-width: calc(100% - 12px);
+        left: 12px;
+    }
+    .gallery-photo span.photo-title {
+        bottom: 12px;
+    }
+    .gallery-photo span.photo-time {
+        top: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-photos {
+        column-count: 1;
+        margin-top: 35px;
+    }
+    .gallery-photo span.photo-title,
+    .gallery-photo span.photo-time {
+        font-size: 10px;
+        padding: 2px 5px;
+        max-width: calc(100% - 8px);
+        left: 8px;
+    }
+    .gallery-photo span.photo-title {
+        bottom: 8px;
+    }
+    .gallery-photo span.photo-time {
+        top: 8px;
+    }
+}
+
+/* 超小屏幕 */
+@media screen and (max-width: 480px) {
+    .gallery-photo span.photo-title,
+    .gallery-photo span.photo-time {
+        font-size: 10px;
+        padding: 2px 4px;
+        max-width: calc(100% - 6px);
+        left: 6px;
+    }
+    .gallery-photo span.photo-title {
+        bottom: 6px;
+    }
+    .gallery-photo span.photo-time {
+        top: 6px;
+    }
+}
+
+/* 返回顶部按钮 */
+/* #back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+} */
+
+/* 动画效果 */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
