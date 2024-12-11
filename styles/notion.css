@@ -1647,13 +1647,6 @@ code[class*='language-'] {
   padding: 0 !important;
   z-index: 20;
   height: 100%;
-  border-radius: 15px 15px 0 0;
-}
-.notion-collection-card .notion-collection-card-size-medium{
-  border-radius: 15px 15px 0 0;
-}
-.notion-collection-card-cover img {
-  border-radius: 15px 15px 0 0;
 }
 
 .notion-page-cover .lazy-image-preview,
