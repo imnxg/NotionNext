@@ -28,5 +28,24 @@ module.exports = {
 
   // 邮件
   MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID || null, // 开启mailichimp邮件订阅 客户列表ID ，具体使用方法参阅文档
-  MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null // 开启mailichimp邮件订阅 APIkey
+  MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY || null, // 开启mailichimp邮件订阅 APIkey
+
+  //**************** 自定义配置官方没有提供，需要自己手动引入 start  ****************
+  //url匹配
+  URL_HEADER_PATHS: process.env.NEXT_PUBLIC_URL_HEADER_PATHS || ['/archive', '/category', '/tag','/memos'], // 随记url匹配
+  // Memos 随记 @see https://github.com/usememos/usememos
+  MEMOS_ENABLE: process.env.NEXT_PUBLIC_MEMOS_ENABLE || false, // 开关
+  MEMOS_HOST: process.env.NEXT_PUBLIC_MEMOS_HOST || 'https://memos.chenge.ink', // 随记地址
+  MEMOS_LIMIT: process.env.NEXT_PUBLIC_MEMOS_LIMIT || '10',// 随记数量
+  MEMOS_DOM_ID: process.env.NEXT_PUBLIC_MEMOS_DOM_ID || '#memos',// 随记dom id
+  MEMOS_CREATOR_ID: process.env.NEXT_PUBLIC_MEMOS_CREATOR_ID || '1',// 随记创建者id
+  MEMOS_USERNAME: process.env.NEXT_PUBLIC_MEMOS_USERNAME || 'keney', // 随记用户名
+  MEMOS_NAME: process.env.NEXT_PUBLIC_MEMOS_NAME || 'keney', // 随记名称
+  MEMOS_GET_HOST_URL: process.env.NEXT_PUBLIC_MEMOS_GET_HOST_URL || 'https://memos.chenge.ink',// 随记地址
+  MEMOS_GET_CREATOR_ID: process.env.NEXT_PUBLIC_MEMOS_GET_CREATOR_ID || '1',// 随记创建者id
+  MEMOS_GET_TAG: process.env.NEXT_PUBLIC_MEMOS_GET_TAG || 'images',// 随记标签
+  MEMOS_GET_PUBLIC: process.env.NEXT_PUBLIC_MEMOS_GET_PUBLIC || 'PUBLIC',// 随记公开状态
+  MEMOS_GALLERY_ENABLE: process.env.NEXT_PUBLIC_MEMOS_GALLERY_ENABLE || false,// 随记画册开关
+
+  //**************** 自定义配置官方没有提供，需要自己手动引入 start  ****************
 }

@@ -25,6 +25,8 @@ module.exports = {
     '/auth/result': 'LayoutAuth',
     '/sign-in/[[...index]]': 'LayoutSignIn',
     '/sign-up/[[...index]]': 'LayoutSignUp',
-    '/dashboard/[[...index]]': 'LayoutDashboard'
+    '/dashboard/[[...index]]': 'LayoutDashboard',
+    '/memos' : 'LayoutMemos',
+    "/gallery" : "LayoutGallery",
   }
 }
