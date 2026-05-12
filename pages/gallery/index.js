@@ -1,6 +1,6 @@
 import { DynamicLayout } from '@/themes/theme'
 import { siteConfig } from '@/lib/config'
-import { getGlobalData } from '@/lib/db/getSiteData'
+import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import React from 'react'
 import BLOG from '@/blog.config'
 
@@ -11,7 +11,7 @@ const GalleryIndex = props => {
 
 export async function getStaticProps() {
   const from = 'gallery-index-props'
-  const props = await getGlobalData({ from })
+  const props = await fetchGlobalAllData({ from })
   delete props.allPages
   return {
     props,
